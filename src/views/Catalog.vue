@@ -2,22 +2,16 @@
   <div>
     <h1>Maynard's Juggling Emporium</h1>
     <div id="example-3">
-      <input
-        type="checkbox"
-        id="balls"
-        value="Balls"
-        checked="true"
-        v-model="checkedNames"
-      />
+      <input type="checkbox" id="balls" value="Balls" v-model="categories" />
       <label class="lbl" for="balls">Balls</label>
-      <input type="checkbox" id="clubs" value="Clubs" v-model="checkedNames" />
+      <input type="checkbox" id="clubs" value="Clubs" v-model="categories" />
       <label for="clubs" class="lbl">Clubs</label>
-      <input type="checkbox" id="rings" value="Rings" v-model="checkedNames" />
+      <input type="checkbox" id="rings" value="Rings" v-model="categories" />
       <label for="rings" class="lbl">Rings</label>
     </div>
-    <h3>Showing {{ checkedNames }}</h3>
+    <h3>Showing {{ categories }}</h3>
     <main>
-      <div v-for="product in productarray" :key="product.id">
+      <div v-for="product in filteredProducts" :key="product.id">
         <ProductInfo :product="product">
           <template v-slot:title>
             <router-link
@@ -44,12 +38,26 @@ export default {
       productarray: productlist,
       balls: true,
       clubs: true,
-      checkedNames: ["Balls", "Clubs", "Rings"]
+      categories: ["Balls", "Clubs", "Rings"]
     };
   },
   created() {
     // this.products = ProductArray.ProductArray;
     console.log(this.productarray);
+  },
+  computed: {
+    filteredProducts: {
+      get() {
+        return this.productarray.filter(prod => {
+          let isOK = false;
+          this.categories.forEach(cat => {
+            if (prod.category === cat) isOK = true;
+          });
+
+          return isOK;
+        });
+      }
+    }
   }
 };
 </script>
