@@ -18,7 +18,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .items {
   display: flex;
   justify-content: center;
@@ -35,8 +35,8 @@ export default {
   max-width: 40%;
 }
 figure {
+  max-width: 40%;
   display: flex;
-
   flex-direction: column;
 }
 .list {

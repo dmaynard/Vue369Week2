@@ -77,6 +77,10 @@ export default {
   max-width: 40%;
   justify-content: center;
 }
+.img {
+  max-width: 40%;
+  justify-content: center;
+}
 figure {
   display: flex;
 

@@ -2,9 +2,8 @@
   <div>
     <div class="row list">
       <div class="col-md-5 col-md-offset-0">
-        <h3>{{ product.image }}</h3>
         <figure>
-          <img class="images" v-bind:src="product.image" />
+          <img class="image" v-bind:src="product.image" />
         </figure>
       </div>
       <div class="col-md-6 col-md-offset-0 description">
@@ -29,5 +28,10 @@ export default {
 .list {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   padding: 30px;
+  margin: 10px auto;
+}
+.image {
+  max-width: 40%;
+  justify-content: center;
 }
 </style>

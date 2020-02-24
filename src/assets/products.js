@@ -5,7 +5,7 @@ const productarry = [
     description:
       "A 25 pound bag of <em>irresistible</em>, organic goodness for your cat.",
     price: 2000,
-    image: "/image/yarn.jpg",
+    image: "/images/laser-pointer.jpg",
     availableInventory: 10,
     rating: 1
   },
