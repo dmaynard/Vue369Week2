@@ -2,26 +2,20 @@
   <div>
     <h1>Maynard's Juggling Emporium</h1>
     <div id="example-3">
-      <span>
-        <input
-          type="checkbox"
-          class="myCheckbox"
-          id="balls"
-          value="Show Juggling Balls"
-          v-model="balls"
-        />
-        <label for="balls ">Show Juggling Balls</label>
-        <p></p>
-        <input
-          type="checkbox"
-          class="myCheckbox"
-          id="clubs"
-          value="Show Juggling Clubs"
-          v-model="clubs"
-        />
-        <label for="clubs">Show Juggling Clubs</label>
-      </span>
+      <input
+        type="checkbox"
+        id="balls"
+        value="Balls"
+        checked="true"
+        v-model="checkedNames"
+      />
+      <label class="lbl" for="balls">Balls</label>
+      <input type="checkbox" id="clubs" value="Clubs" v-model="checkedNames" />
+      <label for="clubs" class="lbl">Clubs</label>
+      <input type="checkbox" id="rings" value="Rings" v-model="checkedNames" />
+      <label for="rings" class="lbl">Rings</label>
     </div>
+    <h3>Showing {{ checkedNames }}</h3>
     <main>
       <div v-for="product in productarray" :key="product.id">
         <ProductInfo :product="product">
@@ -41,21 +35,21 @@
 
 <script>
 import ProductInfo from "@/components/ProductInfo.vue";
-import productarray from "@/assets/products.js";
+import productlist from "@/assets/products.js";
 export default {
   name: "Catalog",
   components: { ProductInfo },
   data() {
     return {
-      productarray: productarray,
+      productarray: productlist,
       balls: true,
       clubs: true,
-      checkedNames: []
+      checkedNames: ["Balls", "Clubs", "Rings"]
     };
   },
   created() {
     // this.products = ProductArray.ProductArray;
-    // console.log(this.productarray);
+    console.log(this.productarray);
   }
 };
 </script>
@@ -95,5 +89,8 @@ figure {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.lbl {
+  padding-right: 20px;
 }
 </style>
