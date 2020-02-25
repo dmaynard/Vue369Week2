@@ -12,7 +12,7 @@
 </template>
 <script>
 import ProductInfo from "@/components/ProductInfo.vue";
-import productarray from "@/assets/products.js";
+import { Productlist } from "@/assets/products";
 export default {
   components: { ProductInfo },
   data() {
@@ -26,7 +26,7 @@ export default {
     }
   },
   created: function() {
-    this.product = productarray.filter(
+    this.product = Productlist.filter(
       data => data.id == this.$route.params.id
     )[0];
   }

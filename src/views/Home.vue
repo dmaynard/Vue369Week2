@@ -35,7 +35,6 @@ export default {
   max-width: 40%;
 }
 figure {
-  max-width: 40%;
   display: flex;
   flex-direction: column;
 }

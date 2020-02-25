@@ -29,13 +29,14 @@
 
 <script>
 import ProductInfo from "@/components/ProductInfo.vue";
-import productlist from "@/assets/products.js";
+// import productlist from "@/assets/products.js";
+import { Productlist } from "@/assets/products";
 export default {
   name: "Catalog",
   components: { ProductInfo },
   data() {
     return {
-      productarray: productlist,
+      productarray: Productlist,
       balls: true,
       clubs: true,
       categories: ["Balls", "Clubs", "Rings"]
@@ -48,14 +49,9 @@ export default {
   computed: {
     filteredProducts: {
       get() {
-        return this.productarray.filter(prod => {
-          let isOK = false;
-          this.categories.forEach(cat => {
-            if (prod.category === cat) isOK = true;
-          });
-
-          return isOK;
-        });
+        return this.productarray.filter(prod =>
+          this.categories.some(cat => prod.category === cat)
+        );
       }
     }
   }

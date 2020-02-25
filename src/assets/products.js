@@ -1,4 +1,4 @@
-const productlist = [
+export const Productlist = [
   {
     id: 1001,
     title: "PLAY MMX1 FILLED STAGE BALL (62MM, 105 GRAMS)",
@@ -56,4 +56,3 @@ const productlist = [
     category: "Rings"
   }
 ];
-export default productlist;
